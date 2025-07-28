@@ -85,7 +85,7 @@ etf-prediction-system/
 ├── config.py             # 配置文件
 ├── main.py               # 主程序入口
 ├── requirements.txt      # 依赖列表
-├── data/                 # 数据目录（需自行创建）
+├── data/                 # 数据目录
 │   ├── factor_daily.csv  # 因子数据
 │   └── return_monthly.csv# 收益率数据
 ├── core/                 # 核心模块
