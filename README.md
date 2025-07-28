@@ -132,16 +132,3 @@ etf-prediction-system/
 ### 结果可视化不显示中文？
 
 确保系统已安装中文字体（如SimHei），或在`visualize.py`中修改字体配置。
-
-## 贡献指南
-
-欢迎提交Issue或Pull Request！贡献前请阅读：
-1. Fork仓库并创建特性分支
-2. 提交代码前运行测试
-3. 确保代码符合PEP8规范
-4. 更新相关文档
-
-## 许可证
-
-本项目采用 MIT 许可证 - 详情参见[LICENSE](LICENSE)文件
-```
