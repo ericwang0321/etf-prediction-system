@@ -24,7 +24,7 @@ git clone https://github.com/yourusername/etf-prediction-system.git
 cd etf-prediction-system
 ```
 
-2. 创建虚拟环境（推荐）：
+2. 创建虚拟环境：
 ```bash
 python -m venv venv
 source venv/bin/activate  # Linux/Mac
