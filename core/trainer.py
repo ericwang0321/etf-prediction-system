@@ -3,7 +3,7 @@
 """
 from sklearn.model_selection import GridSearchCV
 import numpy as np
-import pandas as pd # <-- 确保 pandas 已导入，因为 Trainer 中使用了它
+import pandas as pd 
 
 class ModelTrainer:
     def __init__(self, model, param_grid):
@@ -43,7 +43,6 @@ class ModelTrainer:
         self.best_model = grid_search.best_estimator_
         return grid_search.best_estimator_, grid_search.best_params_
     
-    # 【关键修改】: 方法签名新增 train_data_df 参数
     def train_with_rolling_window(self, data_loader, train_window, train_data_df): 
         """
         滚动窗口训练
@@ -54,7 +53,7 @@ class ModelTrainer:
         """
         all_test_results = pd.DataFrame()
         
-        # 【关键修改】: 调用 get_monthly_splits 时传入 train_data_df
+        # 调用 get_monthly_splits 时传入 train_data_df
         for train_df, test_df in data_loader.get_monthly_splits(train_data_df, train_window):
             # 准备数据
             features = [col for col in train_df.columns if col not in ['datetime', 'sec_code', 'target']]
