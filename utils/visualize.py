@@ -4,18 +4,14 @@
 import matplotlib.pyplot as plt
 import pandas as pd
 import numpy as np
-from scipy.stats import spearmanr # <-- 【新增】导入 spearmanr
-
-# --- Matplotlib 中文显示设置 ---
+from scipy.stats import spearmanr
 import matplotlib.font_manager as fm
 
-# 尝试查找已安装的文泉驿正黑字体
-# Colab中通过 apt-get 安装的字体通常在 /usr/share/fonts/ 或 /usr/local/share/fonts/
-# 优先查找 wqy-zenhei
+# 优先查找中文字体 wqy-zenhei
 if fm.findfont('WenQuanYi Zen Hei', fontext='ttf'):
     plt.rcParams['font.family'] = ['WenQuanYi Zen Hei']
     print("Matplotlib 字体设置为 WenQuanYi Zen Hei (已找到)。")
-elif fm.findfont('wqy-zenhei', fontext='ttf'): # 另一种可能的字体名
+elif fm.findfont('wqy-zenhei', fontext='ttf'): 
     plt.rcParams['font.family'] = ['wqy-zenhei']
     print("Matplotlib 字体设置为 wqy-zenhei (已找到)。")
 else:
