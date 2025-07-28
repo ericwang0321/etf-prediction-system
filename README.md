@@ -16,7 +16,7 @@
 
 - Python 3.8+
 
-### 运行步骤
+### 使用说明
 
 1. 克隆仓库：
 ```bash
@@ -36,17 +36,13 @@ venv\Scripts\activate     # Windows
 pip install -r requirements.txt
 ```
 
-## 使用说明
-
-### 快速开始
-
-1. 配置参数（可选）：
+4. 配置参数（可选）：
    修改`config.py`中的参数设置，包括：
    - 数据路径
    - 模型参数网格
    - 训练窗口设置
 
-2. 运行主程序：
+5. 运行主程序：
 ```bash
 python main.py
 ```
