@@ -13,6 +13,13 @@ import pandas as pd
 import numpy as np
 
 def main():
+    # --- 设置随机种子以保证可重复性 ---
+    SEED = 42 # 可以选择任何整数作为种子
+    os.environ['PYTHONHASHSEED'] = str(SEED) # 确保 Python 哈希操作可重复
+    random.seed(SEED) # Python 内置 random 模块的种子
+    np.random.seed(SEED) # NumPy 的种子
+    tf.random.set_seed(SEED) # TensorFlow/Keras 的种子
+
     # 初始化各模块
     data_loader = DataLoader(config.DATA_PATH['factor'], config.DATA_PATH['return'])
     evaluator = ModelEvaluator()
@@ -27,7 +34,7 @@ def main():
     data = data_loader.load_and_merge_data()
     train_data, predict_data = data_loader.split_train_predict_data(data)
     
-    # 【新增】: 计算 LSTM 的 input_dim，并在实例化时传入
+    # 计算 LSTM 的 input_dim，并在实例化时传入
     features_for_lstm = [col for col in train_data.columns if col not in ['datetime', 'sec_code', 'target']]
     lstm_input_dim = len(features_for_lstm)
 
@@ -45,7 +52,6 @@ def main():
     for model_name, model in models.items():
         print(f"\n===== 开始处理 {model_name} 模型 =====")
         
-        # 【删除】: 移除这里对 input_dim 的特殊处理，因为它已经通过构造函数传递
         current_param_grid = config.PARAM_GRIDS[model_name]
         # if model_name == 'lstm':
         #     features = [col for col in train_data.columns if col not in ['datetime', 'sec_code', 'target']]
